@@ -1,0 +1,40 @@
+{
+  "name": "webp-loader",
+  "version": "0.1.0",
+  "description": "WebP image loader & converter for Webpack",
+  "main": "index.js",
+  "scripts": {
+    "test": "webpack -p --config test/webpack.config.js",
+    "lint": "eslint index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/kavu/webp-loader.git"
+  },
+  "keywords": [
+    "webpack",
+    "webp",
+    "image"
+  ],
+  "author": "Max Riveiro <kavu13@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kavu/webp-loader/issues"
+  },
+  "homepage": "https://github.com/kavu/webp-loader#readme",
+  "dependencies": {
+    "imagemin": "^4.0.0",
+    "imagemin-webp": "^3.1.0",
+    "loader-utils": "^0.2.12"
+  },
+  "devDependencies": {
+    "eslint": "^1.10.3",
+    "eslint-plugin-nodeca": "^1.0.3",
+    "file-loader": "^0.8.5",
+    "multi-loader": "^0.1.0",
+    "webpack": "^1.12.10"
+  },
+  "engines": {
+    "node": ">=0.6"
+  }
+}
