@@ -17,7 +17,7 @@ loaders: [
   {
     test: /\.(jpe?g|png)$/i,
     loaders: [
-      'file?hash=sha512&digest=hex&name=[hash].[ext]',
+      'file',
       'webp'
     ]
   }
@@ -31,7 +31,7 @@ loaders: [
   {
     test: /\.(jpe?g|png)$/i,
     loaders: [
-      'file?hash=sha512&digest=hex&name=[hash].[ext]',
+      'file',
       'webp?{quality: 13}'
     ]
   }
@@ -45,8 +45,8 @@ loaders: [
   {
     test: /\.(jpe?g|png)$/i,
     loader: multi(
-      'file?hash=sha512&digest=hex&name=[hash].[ext]',
-      'file?hash=sha512&digest=hex&name=[hash].[ext].webp!webp?{quality: 75}'
+      'file?name=[name].[ext].webp!webp?{quality: 95}'
+      'file?name=[name].[ext]',
     )
   },
 ]

@@ -18,8 +18,8 @@ module.exports = [
         {
           test: /\.(png|jpe?g)$/i,
           loader: multi(
-            'file?hash=sha512&digest=hex&name=[hash].[ext]',
-            'file?hash=sha512&digest=hex&name=[hash].[ext].webp!../index.js?{quality: 75}'
+            'file?name=[name].[ext].webp!../index.js?{quality: 75}',
+            'file?name=[name].[ext]'
           )
         },
       ]
