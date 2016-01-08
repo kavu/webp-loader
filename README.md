@@ -62,4 +62,4 @@ For all possible options please visit "API" section of the official [imagemin-we
 
 ## License
 
-MIT (http://www.opensource.org/licenses/mit-license.php)
+[MIT](http://opensource.org/licenses/MIT)
