@@ -4,8 +4,8 @@
   "description": "WebP image loader & converter for Webpack",
   "main": "index.js",
   "scripts": {
-    "test": "webpack -p --config test/webpack.config.js",
-    "lint": "eslint index.js"
+    "test": "node_modules/webpack/bin/webpack.js -p --config test/webpack.config.js",
+    "lint": "node_modules/eslint/bin/eslint.js index.js"
   },
   "repository": {
     "type": "git",
@@ -25,14 +25,13 @@
   "dependencies": {
     "imagemin": "^4.0.0",
     "imagemin-webp": "^3.1.0",
-    "loader-utils": "^0.2.12"
+    "loader-utils": "^0.2.15"
   },
   "devDependencies": {
-    "eslint": "^1.10.3",
-    "eslint-plugin-nodeca": "^1.0.3",
-    "file-loader": "^0.8.5",
+    "eslint": "^3.3.0",
+    "file-loader": "^0.9.0",
     "multi-loader": "^0.1.0",
-    "webpack": "^1.12.10"
+    "webpack": "^1.13.1"
   },
   "engines": {
     "node": ">=0.6"
