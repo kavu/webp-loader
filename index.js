@@ -4,57 +4,51 @@
 // The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-var Imagemin = require('imagemin');
+var imagemin = require('imagemin');
 var imageminWebp = require('imagemin-webp');
 var loaderUtils = require('loader-utils');
 
-module.exports = function(content) {
+/**
+ * Basically the getLoaderConfig() function from loader-utils v0.2.
+ */
+function getLegacyLoaderConfig(loaderContext, defaultConfigKey) {
+  var options = loaderUtils.getOptions(loaderContext);
+  var configKey = options ? options.config : defaultConfigKey;
+  if (configKey) {
+    return assign({}, options, loaderContext.options[configKey]);
+  }
+  return options;
+}
+
+module.exports = function (content) {
   this.cacheable && this.cacheable();
+
+  var config = this.version === 2 ?
+    loaderUtils.getOptions(this)
+    : getLegacyLoaderConfig(this, "imageWebpackLoader");
+
+  if (config === null) {
+    // handle the cases in which loaderUtils.getOptions() returns null
+    // see https://github.com/webpack/loader-utils#getoptions
+    config = {}
+  }
 
   var callback = this.async();
   var called = false;
 
-  var query = loaderUtils.parseQuery(this.query);
-  var options = {
-    preset: query.preset || 'default',
-    quality: query.quality || 75,
-    alphaQuality: query.alphaQuality || 100,
-    method: query.method || 1,
-    sns: query.sns || 80,
-    autoFilter: query.autoFilter || false,
-    sharpness: query.sharpness || 0,
-    lossless: query.lossless || false,
-    bypassOnDebug: query.bypassOnDebug || false,
-  };
-
-  if (query.size) {
-    options.size = query.size;
-  }
-
-  if (query.filter) {
-    options.filter = query.filter;
-  }
-
-  if (this.debug === true && options.bypassOnDebug === true) {
+  if (this.debug === true && config.bypassOnDebug === true) {
     return callback(null, content);
   } else {
-    var imagemin = new Imagemin()
-      .src(content)
-      .use(imageminWebp(options));
-
-    imagemin.run(function(err, files) {
-      if (called) {
-        return;
-      }
-
-      called = true;
-
-      if (err) {
+    imagemin
+      .buffer(content,{
+        plugins: imageminWebp(config) 
+      })
+      .then(function(data){
+        callback(null, data);
+      })
+      .catch(function(err){
         callback(err);
-      } else {
-        callback(null, files[0].contents);
-      }
-    });
+      });
   }
 };
 
