@@ -1,5 +1,7 @@
 # webp-loader
 
+[![Build Status](https://travis-ci.org/kavu/webp-loader.svg?branch=master)](https://travis-ci.org/kavu/webp-loader)
+
 [WebP](https://developers.google.com/speed/webp/) image loader & converter loader for Webpack.
 
 ## Install
