@@ -14,9 +14,11 @@ var loaderUtils = require('loader-utils');
 function getLegacyLoaderConfig(loaderContext, defaultConfigKey) {
   var options = loaderUtils.getOptions(loaderContext);
   var configKey = options ? options.config : defaultConfigKey;
+
   if (configKey) {
-    return assign({}, options, loaderContext.options[configKey]);
+    return Object.assign({}, options, loaderContext.options[configKey]);
   }
+
   return options;
 }
 
@@ -34,14 +36,13 @@ module.exports = function (content) {
   }
 
   var callback = this.async();
-  var called = false;
 
   if (this.debug === true && config.bypassOnDebug === true) {
     return callback(null, content);
   } else {
     imagemin
       .buffer(content,{
-        plugins: imageminWebp(config) 
+        plugins: imageminWebp(config)
       })
       .then(function(data){
         callback(null, data);
