@@ -4,8 +4,10 @@
   "description": "WebP image loader & converter for Webpack",
   "main": "index.js",
   "scripts": {
-    "test": "node_modules/webpack/bin/webpack.js -p --config test/webpack.config.js",
-    "lint": "node_modules/eslint/bin/eslint.js index.js"
+    "test": "npm run test:webpack1 && npm run test:webpack2",
+    "lint": "node_modules/eslint/bin/eslint.js index.js",
+    "test:webpack1":"npm install -q webpack@1.x && webpack --config test/webpack1.config.js",
+    "test:webpack2":"npm install -q webpack@2.x && webpack --config test/webpack2.config.js"
   },
   "repository": {
     "type": "git",
@@ -23,15 +25,14 @@
   },
   "homepage": "https://github.com/kavu/webp-loader#readme",
   "dependencies": {
-    "imagemin": "^4.0.0",
-    "imagemin-webp": "^3.1.0",
-    "loader-utils": "^0.2.15"
+    "imagemin": "^5.2.2",
+    "imagemin-webp": "^4.0.0",
+    "loader-utils": "^1.1.0"
   },
   "devDependencies": {
     "eslint": "^3.3.0",
-    "file-loader": "^0.9.0",
-    "multi-loader": "^0.1.0",
-    "webpack": "^1.13.1"
+    "file-loader": "^0.10.1",
+    "multi-loader": "^0.1.0"
   },
   "engines": {
     "node": ">=0.6"
