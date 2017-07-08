@@ -19,8 +19,8 @@ loaders: [
   {
     test: /\.(jpe?g|png)$/i,
     loaders: [
-      'file',
-      'webp'
+      'file-loader',
+      'webp-loader'
     ]
   }
 ]
@@ -33,22 +33,22 @@ loaders: [
   {
     test: /\.(jpe?g|png)$/i,
     loaders: [
-      'file',
+      'file-loader',
       'webp?{quality: 13}'
     ]
   }
 ]
 ```
 
-Normally you don't want to convert all of your images to WebP format, you just want to make alternate versions. You can use [multi-loader](https://github.com/webpack/multi-loader) to achieve it:
+Normally you don't want to convert all of your images to WebP format, you just want to make alternate versions. You can use [multi-loader](https://github.com/webpack-contrib/multi-loader) to achieve it:
 
 ```javascript
 loaders: [
   {
     test: /\.(jpe?g|png)$/i,
     loader: multi(
-      'file?name=[name].[ext].webp!webp?{quality: 95}'
-      'file?name=[name].[ext]',
+      'file-loader?name=[name].[ext].webp!webp?{quality: 95}'
+      'file-loader?name=[name].[ext]',
     )
   },
 ]
