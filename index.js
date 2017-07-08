@@ -8,32 +8,12 @@ var imagemin = require('imagemin');
 var imageminWebp = require('imagemin-webp');
 var loaderUtils = require('loader-utils');
 
-/**
- * Basically the getLoaderConfig() function from loader-utils v0.2.
- */
-function getLegacyLoaderConfig(loaderContext, defaultConfigKey) {
-  var options = loaderUtils.getOptions(loaderContext);
-  var configKey = options ? options.config : defaultConfigKey;
-
-  if (configKey) {
-    return Object.assign({}, options, loaderContext.options[configKey]);
-  }
-
-  return options;
-}
-
 module.exports = function (content) {
   this.cacheable && this.cacheable();
 
-  var config = this.version === 2 ?
-    loaderUtils.getOptions(this)
-    : getLegacyLoaderConfig(this, "imageWebpackLoader");
-
-  if (config === null) {
-    // handle the cases in which loaderUtils.getOptions() returns null
-    // see https://github.com/webpack/loader-utils#getoptions
-    config = {}
-  }
+  var query = loaderUtils.getOptions(this) || {};
+  var configKey = query.config || 'webpLoader';
+  var config = this.options[configKey] || {};
 
   var callback = this.async();
 

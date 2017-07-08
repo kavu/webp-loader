@@ -18,7 +18,7 @@ env:
 before_install:
   - npm install -g npm
 install:
-  - yarn install
+  - npm install
 script:
   - scripts/test.sh
 
