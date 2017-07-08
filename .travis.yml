@@ -7,6 +7,13 @@ node_js:
   - 7
   - 8
 
+env:
+  - WEBPACK_VERSION=1.x
+  - WEBPACK_VERSION=2.x
+  - WEBPACK_VERSION=3.x
+
+script: scripts/test.sh
+
 matrix:
   allow_failures:
     - node_js: 8

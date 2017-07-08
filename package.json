@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "npm run lint && npm run test:webpack1 && npm run test:webpack2 && npm run test:webpack3",
-    "lint": "node_modules/.bin/eslint index.js test/*.js",
-    "test:webpack1": "npm i -q webpack@1.x && webpack --config test/webpack.config.js",
-    "test:webpack2": "npm i -q webpack@2.x && webpack --config test/webpack.config.js",
-    "test:webpack3": "npm i -q webpack@3.x && webpack --config test/webpack.config.js"
+    "lint": "npm i && node_modules/.bin/eslint index.js test/*.js",
+    "test:webpack1": "WEBPACK_VERSION=1.x ./scripts/test.sh",
+    "test:webpack2": "WEBPACK_VERSION=2.x ./scripts/test.sh",
+    "test:webpack3": "WEBPACK_VERSION=3.x ./scripts/test.sh"
   },
   "repository": {
     "type": "git",
