@@ -1,3 +1,6 @@
+dist: trusty
+sudo: false
+
 language: node_js
 
 node_js:
@@ -8,11 +11,16 @@ node_js:
   - 8
 
 env:
-  - WEBPACK_VERSION=1.x
-  - WEBPACK_VERSION=2.x
-  - WEBPACK_VERSION=3.x
+  - NODE_ENV=test WEBPACK_VERSION=1.x
+  - NODE_ENV=test WEBPACK_VERSION=2.x
+  - NODE_ENV=test WEBPACK_VERSION=3.x
 
-script: scripts/test.sh
+before_install:
+  - npm install -g npm
+install:
+  - yarn install
+script:
+  - scripts/test.sh
 
 matrix:
   allow_failures:
