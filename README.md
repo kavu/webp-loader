@@ -34,7 +34,7 @@ loaders: [
     test: /\.(jpe?g|png)$/i,
     loaders: [
       'file-loader',
-      'webp?{quality: 13}'
+      'webp-loader?{quality: 13}'
     ]
   }
 ]
@@ -47,7 +47,7 @@ loaders: [
   {
     test: /\.(jpe?g|png)$/i,
     loader: multi(
-      'file-loader?name=[name].[ext].webp!webp?{quality: 95}'
+      'file-loader?name=[name].[ext].webp!webp-loader?{quality: 95}'
       'file-loader?name=[name].[ext]',
     )
   },
