@@ -13,7 +13,7 @@ module.exports = function (content) {
 
   var query = loaderUtils.getOptions(this) || {};
   var configKey = query.config || 'webpLoader';
-  var config = this.options[configKey] || {};
+  var config = Object.assign({}, this.options[configKey] || {}, query);
 
   var callback = this.async();
 
