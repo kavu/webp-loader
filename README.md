@@ -1,6 +1,7 @@
 # webp-loader
 
 [![Build Status](https://travis-ci.org/kavu/webp-loader.svg?branch=master)](https://travis-ci.org/kavu/webp-loader)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fkavu%2Fwebp-loader.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fkavu%2Fwebp-loader?ref=badge_shield)
 
 [WebP](https://developers.google.com/speed/webp/) image loader & converter loader for Webpack.
 
@@ -65,3 +66,6 @@ For all possible options please visit "API" section of the official [imagemin-we
 ## License
 
 [MIT](http://opensource.org/licenses/MIT)
+
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fkavu%2Fwebp-loader.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fkavu%2Fwebp-loader?ref=badge_large)
