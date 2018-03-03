@@ -26,8 +26,7 @@ script:
 
 # webpack 4 supports only node 6+
 matrix:
-  allow_failures:
-    - node_js: 9
+  exclude:
     - node_js: 4
       env: NODE_ENV=test WEBPACK_VERSION=4.x
     - node_js: 5
