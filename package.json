@@ -4,11 +4,12 @@
   "description": "WebP image loader & converter for Webpack",
   "main": "index.js",
   "scripts": {
-    "test": "npm run lint && npm run test:webpack1 && npm run test:webpack2 && npm run test:webpack3",
+    "test": "npm run lint && npm run test:webpack1 && npm run test:webpack2 && npm run test:webpack3 && npm run test:webpack4",
     "lint": "npm i && node_modules/.bin/eslint index.js test/*.js",
     "test:webpack1": "WEBPACK_VERSION=1.x ./scripts/test.sh",
     "test:webpack2": "WEBPACK_VERSION=2.x ./scripts/test.sh",
-    "test:webpack3": "WEBPACK_VERSION=3.x ./scripts/test.sh"
+    "test:webpack3": "WEBPACK_VERSION=3.x ./scripts/test.sh",
+    "test:webpack4": "WEBPACK_VERSION=4.x ./scripts/test.sh"
   },
   "repository": {
     "type": "git",
