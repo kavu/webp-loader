@@ -41,5 +41,8 @@
   "peerDependencies": {
     "webpack": "*",
     "webpack-cli": "*"
+  },
+  "engines": {
+    "node": ">=6.17.1"
   }
 }
