@@ -25,8 +25,8 @@ loaders: [
   }
 ]
 ```
-Unfortunately, if you wish to pass an options for internal [imagemin-webp](https://github.com/imagemin/imagemin-webp) you should pass a options in JSON form:
 
+Unfortunately, if you wish to pass an options for internal [imagemin-webp](https://github.com/imagemin/imagemin-webp) you should pass a options in JSON form:
 
 ```javascript
 loaders: [
@@ -56,7 +56,7 @@ loaders: [
 
 ## Options
 
-For all possible options please visit "API" section of the official [imagemin-webp README  ](https://github.com/imagemin/imagemin-webp#imageminwebpoptions).
+For all possible options please visit "API" section of the official [imagemin-webp README](https://github.com/imagemin/imagemin-webp#imageminwebpoptions).
 
 ## Inspiration
 

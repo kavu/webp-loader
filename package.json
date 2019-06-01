@@ -4,8 +4,8 @@
   "description": "WebP image loader & converter for Webpack",
   "main": "index.js",
   "scripts": {
-    "test": "npm run lint && npm run test:webpack1 && npm run test:webpack2 && npm run test:webpack3 && npm run test:webpack4",
-    "lint": "npm i && node_modules/.bin/eslint index.js test/*.js",
+    "test": "yarn lint && yarn test:webpack1 && yarn test:webpack2 && yarn test:webpack3 && yarn test:webpack4",
+    "lint": "yarn install && yarn eslint index.js test/*.js",
     "test:webpack1": "WEBPACK_VERSION=1.x ./scripts/test.sh",
     "test:webpack2": "WEBPACK_VERSION=2.x ./scripts/test.sh",
     "test:webpack3": "WEBPACK_VERSION=3.x ./scripts/test.sh",
@@ -25,23 +25,21 @@
   "bugs": {
     "url": "https://github.com/kavu/webp-loader/issues"
   },
-  "homepage": "https://github.com/kavu/webp-loader#readme",
+  "homepage": "https://github.com/kavu/webp-loader",
   "dependencies": {
     "imagemin": "^5.3.1",
     "imagemin-webp": "^4.1.0",
-    "loader-utils": "^1.1.0"
+    "loader-utils": "^1.2.3"
   },
   "devDependencies": {
-    "eslint": "^4.18.2",
+    "eslint": "^4.19.1",
     "file-loader": "^1.1.11",
     "multi-loader": "^0.1.0",
-    "webpack": "^1.15.0",
-    "webpack-cli": "^2.0.9"
-  },
-  "engines": {
-    "node": ">=0.6"
+    "webpack": "^4.32.2",
+    "webpack-cli": "*"
   },
   "peerDependencies": {
-    "webpack": "*"
+    "webpack": "*",
+    "webpack-cli": "*"
   }
 }
