@@ -23,7 +23,7 @@ module.exports = function (content) {
   } else {
     imagemin
       .buffer(content,{
-        plugins: imageminWebp(config)
+        plugins: [imageminWebp(config)]
       })
       .then(function(data){
         callback(null, data);
